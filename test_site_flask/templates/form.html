@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Form</title>
+    <style>.error { color: red; font-size: 0.8em; }</style>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebSiteName</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Gauhati University</a></li>
+      <li><a href="#">Page 1</a></li>
+      <li><a href="#">Page 2</a></li>
+      <li><a href="#">Page 3</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="container mt-5">
+    <h2 class="mb-4">Sample Form</h2>
+    
+    <form method="POST" enctype="multipart/form-data" class="needs-validation">
+        {{ form.hidden_tag() }}
+
+        <!-- Name Field -->
+        <div class="mb-3">
+            {{ form.name.label(class="form-label") }}
+            {{ form.name(class="form-control", placeholder="Enter full name") }}
+            {% for error in form.name.errors %}
+                <div class="text-danger small">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Email Field -->
+        <div class="mb-3">
+            {{ form.email.label(class="form-label") }}
+            {{ form.email(class="form-control", placeholder="user@gauhati.ac.in") }}
+            {% for error in form.email.errors %}
+                <div class="text-danger small">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <div class="row">
+            <!-- Age Field -->
+            <div class="col-md-6 mb-3">
+                {{ form.age.label(class="form-label") }}
+                {{ form.age(class="form-control") }}
+                {% for error in form.age.errors %}
+                    <div class="text-danger small">{{ error }}</div>
+                {% endfor %}
+            </div>
+
+            <!-- Gender Field (Select) -->
+            <div class="col-md-6 mb-3">
+                {{ form.gender.label(class="form-label") }}
+                {{ form.gender(class="form-select") }}
+            </div>
+        </div>
+
+        <!-- Religion (Radio Buttons) -->
+        <div class="mb-3">
+            <label class="form-label d-block">{{ form.religion.label.text }}</label>
+            {% for subfield in form.religion %}
+                <div class="form-check form-check-inline">
+                    {{ subfield(class="form-check-input") }}
+                    {{ subfield.label(class="form-check-label") }}
+                </div>
+            {% endfor %}
+            {% for error in form.religion.errors %}
+                <div class="text-danger d-block small">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Birthdate Field -->
+        <div class="mb-3">
+            {{ form.birthdate.label(class="form-label") }}
+            {{ form.birthdate(class="form-control", type="date") }}
+            {% for error in form.birthdate.errors %}
+                <div class="text-danger small">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <!-- Profile Pic (File Input) -->
+        <div class="mb-4">
+            {{ form.profile_pic.label(class="form-label") }}
+            {{ form.profile_pic(class="form-control") }}
+            {% for error in form.profile_pic.errors %}
+                <div class="text-danger small">{{ error }}</div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn btn-primary px-4">Submit</button>
+    </form>
+</div>
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: rgb(26, 8, 2);
+  color: white;
+}
+</style>
+
+<footer>
+  <p>Author: Hege Refsnes<br>
+  <a href="mailto:hege@example.com">hege@example.com</a></p>
+</footer>
+</body>
+</html>
+
+
